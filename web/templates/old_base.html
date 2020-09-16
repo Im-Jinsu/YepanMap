@@ -1,0 +1,126 @@
+{{define "OLDCSS"}}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache">
+ 
+<link href="/static/css/font-kr.css" rel="stylesheet">
+<link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+{{end}}
+
+{{define "OLD_JS"}}
+<script src="/static/vendor/jquery/jquery-3.1.0.min.js"></script>
+<script src="/static/vendor/jquery/jquery.serializejson.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/vendor/sweetalert2/promise.min.js"></script>
+<script src="/static/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+{{end}}
+
+{{define "OLD_SPINNER"}}
+<div id="spinner" style="display: none;">
+    <div class="spinner-box">
+        <div class="sk-fading-circle">
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "OLD_TOPBAR"}}
+<nav class="navbar navbar-expand navbar-dark classic-blue" style="padding: 0.1rem 1rem;">
+    <!-- <a class="navbar-brand" style="color:white; font-weight: 500">Yepan</a> <a target="_sub" style="color: white;margin-right: 16px;" href="https://www.instagram.com/thanks_challenge/">#덕분에</a> <a class="navbar-brand" style="color:white; font-weight: 500"> Map</a> -->
+    <a class="navbar-brand" style="color:white; font-weight: 500">Yepan Map</a>
+</nav>
+{{end}}
+
+{{define "OLD_COPYRIGHT"}}
+<div class="copyright">
+    <div>Supported Map API : Kakao</div>
+    <div>Supported by AWS</div>
+    <div>Copyright 2020. Yepan.net all rights reserved</div>
+</div>
+{{end}}
+
+{{define "OLD_NAVER"}}
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "56042027944370";
+    wcs_do();
+</script>
+{{end}}
+
+{{define "OLD_TALK"}}
+<script>
+    (function () {
+        var w = window;
+        if (w.ChannelIO) {
+            return (window.console.error || window.console.log || function () { })('ChannelIO script included twice.');
+        }
+        var d = window.document;
+        var ch = function () {
+            ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function (args) {
+            ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+            if (w.ChannelIOInitialized) {
+                return;
+            }
+            w.ChannelIOInitialized = true;
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+            s.charset = 'UTF-8';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+            l();
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', l);
+        } else {
+            window.addEventListener('DOMContentLoaded', l, false);
+            window.addEventListener('load', l, false);
+        }
+    })();
+    ChannelIO('boot', {
+        "pluginKey": "2df77033-1d91-4370-b2d8-d49ea9662c65"
+    });
+</script>
+{{end}}
+
+{{define "OLD_SEO"}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:description" name="description" content="가까운 닌텐도 스위치 매장 찾기">
+<meta name="subject" content="예판맵">
+<meta name="title" content="예판맵">
+{{end}}
+
+{{define "OLD_GOOGLE"}}
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164494254-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-164494254-1');
+</script>
+{{end}}

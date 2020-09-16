@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+
+<head>
+    <title>{{.TITLE}}</title>
+    {{template "OLDCSS" .}}
+    <link href="/static/css/old_main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    {{template "OLD_GOOGLE" .}}
+    {{template "OLD_SEO" .}}
+</head>
+
+<body>
+    {{template "OLD_SPINNER"}}
+
+    {{template "OLD_TALK" .}}
+    {{template "OLD_TOPBAR"}}
+
+    <div style="width:100%;height:100%;">
+        <div id="map" style="width:100%;height:100%;"></div>
+        <div id="filter" class="filter">
+            <div>
+                <div class="header_title">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    <span>{{.HEADER}}</span>
+                </div>
+                <div class="box" style="margin-top: 12px;">
+                    <input id="switch_animal" type="checkbox">
+                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                    <!-- <span class="check"></span> -->
+                    <label for="switch_animal">Switch 동디션</label>
+                </div>
+                <div class="box">
+                    <input id="switch_new" type="checkbox">
+                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                    <!-- <span class="check"></span> -->
+                    <label for="switch_new">Switch 신형</label>
+                </div>
+            </div>
+        </div>
+        <div id="search" class="search disable">
+            <div>
+                <div class="header_title">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" id="search-market" placeholder="매장을 입력해주세요" maxlength="25">
+                </div>
+                <ul id="search_list"></ul>
+            </div>
+        </div>
+        <div onclick="viewNotice(true)" class="notice">공지</div>
+        <div class="relocation">
+            <button onclick="gpsCheck(true)">
+                <i class="fa fa-location-arrow" aria-hidden="true" style="color:#0F4C81;font-size:24px;"></i>
+            </button>
+        </div>
+        <div class="refresh">
+            <button onclick="location.reload()">
+                <i class="fa fa-refresh" aria-hidden="true" style="color:#0F4C81;font-size:24px;"></i>
+            </button>
+        </div>
+    </div>
+    {{template "OLD_COPYRIGHT" .}}
+    {{template "OLD_JS" .}}
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37934502e0edb9bab28281d2a5ab8f38"></script>
+    <script src="/static/js/old_main.js"></script>
+</body>
+
+</html>
