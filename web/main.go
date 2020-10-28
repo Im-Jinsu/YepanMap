@@ -15,9 +15,9 @@ func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.SetOutput(&lumberjack.Logger{
 		Filename:   fmt.Sprintf("%s/log/out.log", loadconf.WASROOTDIR),
-		MaxSize:    50, // megabytes
+		MaxSize:    50,
 		MaxBackups: 3,
-		MaxAge:     5, //days
+		MaxAge:     5,
 	})
 	loadconf.SetConfigController()
 	log.Println("Start Yepanmap")

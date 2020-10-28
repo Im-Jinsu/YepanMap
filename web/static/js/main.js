@@ -1,5 +1,6 @@
 
 const mapDom = document.getElementById('map');
+const spinnerDom = document.getElementById("spinner");
 
 let map;
 let latitude;
@@ -52,3 +53,20 @@ function gpsCheck(flag) {
         map.panTo(moveLatLon);
     });
 }
+
+function getData(url, callBack) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = callBack 
+    xhttp.open("GET", url, true);
+    xhttp.send();
+}
+
+function callBackNintendo() {
+    if (this.readyState === 4) {
+        if (this.status === 200) {
+            var resp = JSON.parse(this.responseText);
+            console.log(resp);
+            spinnerDom.style.display = 'none';
+        }
+    }
+};

@@ -11,6 +11,37 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
+// Route set path
+func Route() *echo.Echo {
+	e := echo.New()
+	e.Pre(middleware.HTTPSWWWRedirect())
+
+	// Set templates
+	e.Renderer = SetTemplates()
+
+	// Set static
+	e.Static("/static", "static")
+
+	// Old version
+	e.GET("/", nintendo.OldMainPageCTRL)
+	e.GET("/nintendo", nintendo.OldMainPageCTRL)
+	e.GET("/old_map", nintendo.OldMainPageCTRL)
+
+	// Main
+	// ------------ Controller
+	e.GET("/map", nintendo.MainPageCTRL)
+	// ------------ AJAX
+	// e.GET("/nintendo.prc", nintendo.MainPageCTRL)
+
+	// Admin
+	adminRouter := e.Group("/shop")
+	// Login
+	// ------------ Controller
+	adminRouter.GET("/login", admin.LoginCTRL)
+
+	return e
+}
+
 // TemplateRenderer is a custom html/template renderer for Echo framework
 type TemplateRenderer struct {
 	templates *template.Template
@@ -25,10 +56,8 @@ func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c 
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
-// Route set path
-func Route() *echo.Echo {
-	e := echo.New()
-	e.Pre(middleware.HTTPSWWWRedirect())
+// SetTemplates set templates
+func SetTemplates() *TemplateRenderer {
 	// Set templates
 	templates := []string{
 		// Old_version
@@ -43,27 +72,5 @@ func Route() *echo.Echo {
 	renderer := &TemplateRenderer{
 		templates: t,
 	}
-	e.Renderer = renderer
-
-	// Set static
-	e.Static("/static", "static")
-
-	// Old version
-	e.GET("/old_map", nintendo.OldMainPageCTRL)
-
-	// Main
-	// ------------ Controller
-	e.GET("/", nintendo.OldMainPageCTRL)
-	e.GET("/nintendo", nintendo.OldMainPageCTRL)
-	e.GET("/map", nintendo.MainPageCTRL)
-	// ------------ AJAX
-	e.GET("/nintendo.prc", nintendo.MainPageCTRL)
-
-	// Admin
-	adminRouter := e.Group("/shop")
-	// Login
-	// ------------ Controller
-	adminRouter.GET("/login", admin.LoginCTRL)
-
-	return e
+	return renderer
 }
